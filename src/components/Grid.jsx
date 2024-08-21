@@ -18,7 +18,11 @@ const Grid = ({ handleSelectSign, language }) => {
 		<ul className='zodiac-block'>
 			{zodiacSigns.map((sign, idx) => (
 				<li key={idx} onClick={() => handleSelectSign(sign.name.en)}>
-					<p>{sign.name[language]}</p> <img src={`./sign-icons-outline/${sign.name.en}.png`} alt='' />
+					<p>{sign.name[language]}</p>{' '}
+					<img
+						src={`../assets/sign-icons-outline/${sign.name.en}.png`}
+						alt=''
+					/>
 				</li>
 			))}
 		</ul>
