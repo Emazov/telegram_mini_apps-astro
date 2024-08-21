@@ -1,21 +1,27 @@
-import Block from './Block';
-
 const zodiacSigns = [
-	{ name: 'Овен', dateRange: '21 марта - 19 апреля' },
-	{ name: 'Телец', dateRange: '20 апреля - 20 мая' },
+	{ name: { en: 'Aries', ru: 'Овен' } },
+	{ name: { en: 'Taurus', ru: 'Телец' } },
+	{ name: { en: 'Gemini', ru: 'Близнецы' } },
+	{ name: { en: 'Cancer', ru: 'Рак' } },
+	{ name: { en: 'Leo', ru: 'Лев' } },
+	{ name: { en: 'Virgo', ru: 'Дева' } },
+	{ name: { en: 'Libra', ru: 'Весы' } },
+	{ name: { en: 'Scorpio', ru: 'Скорпион' } },
+	{ name: { en: 'Sagittarius', ru: 'Стрелец' } },
+	{ name: { en: 'Capricorn', ru: 'Козерог' } },
+	{ name: { en: 'Aquarius', ru: 'Водолей' } },
+	{ name: { en: 'Pisces', ru: 'Рыбы' } },
 ];
 
-const Grid = () => {
+const Grid = ({ handleSelectSign, language }) => {
 	return (
-		<div className='zodiac-grid'>
-			{zodiacSigns.map((sign) => (
-				<Block
-					key={sign.name}
-					sign={sign}
-					onClick={() => onSelectSign(sign.name)}
-				/>
+		<ul className='zodiac-block'>
+			{zodiacSigns.map((sign, idx) => (
+				<li key={idx} onClick={() => handleSelectSign(sign.name.en)}>
+					<p>{sign.name[language]}</p> <img src={`./sign-icons-outline/${sign.name.en}.png`} alt='' />
+				</li>
 			))}
-		</div>
+		</ul>
 	);
 };
 
