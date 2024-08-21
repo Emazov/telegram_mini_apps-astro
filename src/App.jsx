@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+const tg = window.Telegram.WebApp;
 
 const App = () => {
 	const [language, setLanguage] = useState('en');
 
 	useEffect(() => {
-		const tg = window.Telegram.WebApp;
 		tg.ready();
 
 		const userLang = tg.initDataUnsafe.user.language_code;
 		setLanguage(userLang === 'ru' ? 'ru' : 'en');
-
 	}, []);
 
 	return (
